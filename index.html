@@ -47,25 +47,7 @@
 
             <h3 id="using">Using Vavuq</h3>
             <p>Vavuq manual <a href="https://github.com/vavuq/vavuq">vavuq code</a>.</p>
-
- 
-
-            <pre class="prettyprint">public class CoffeeMakerTest {
-
-  @Module(
-      includes = DripCoffeeModule.class,
-      injects = CoffeeMakerTest.class,
-      overrides = true
-  )
-  static class TestModule {
-    @Provides @Singleton Heater provideHeater() {
-      return Mockito.mock(Heater.class);
-    }
-}</pre>
-
-
-            <p>Manual end.</p>
-
+            
             <h3 id="download">Download</h3>
             <p>Download the code.</p>
             <p>The source code to the Vavuq, its samples, and this website is <a href="http://github.com/vavuq/vavuq">available on GitHub</a>.</p>
