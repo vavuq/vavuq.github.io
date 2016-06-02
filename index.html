@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Dagger</title>
+    <title>Vavuq</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A post processor to assess quality of numerical simulations">
     <link href="static/bootstrap-combined.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="span5">
-            <h1>Dagger</h1>
+            <h1>Vavuq</h1>
           </div>
           <div class="span7">
             <menu>
@@ -48,22 +48,22 @@
 
             <p>To contrast, the worst classes in any application are the ones that take up space without doing much at all: the <code>BarcodeDecoderFactory</code>, the <code>CameraServiceLoader</code>, and the <code>MutableContextWrapper</code>. These classes are the clumsy duct tape that wires the interesting stuff together.</p>
 
-            <p>Dagger is a replacement for these <code>FactoryFactory</code> classes. It allows you to focus on the interesting classes. Declare dependencies, specify how to satisfy them, and ship your app.</p>
+            <p>Vavuq is a replacement for these <code>FactoryFactory</code> classes. It allows you to focus on the interesting classes. Declare dependencies, specify how to satisfy them, and ship your app.</p>
 
             <p>By building on standard <a href="http://atinject.googlecode.com/svn/trunk/javadoc/javax/inject/package-summary.html">javax.inject</a> annotations (JSR-330), each class is <strong>easy to test</strong>. You don't need a bunch of boilerplate just to swap the <code>RpcCreditCardService</code> out for a <code>FakeCreditCardService</code>.</p>
 
             <p>Dependency injection isn't just for testing. It also makes it easy to create <strong>reusable, interchangeable modules</strong>. You can share the same <code>AuthenticationModule</code>  across all of your apps. And you can run <code>DevLoggingModule</code> during development and <code>ProdLoggingModule</code> in production to get the right behavior in each situation.</p>
 
-            <p>For more information, <a href="http://www.infoq.com/presentations/Dagger">watch an introductory talk</a> by Jesse Wilson at QCon 2012.</p>
+            <p>For more information, <a href="http://www.infoq.com/presentations/Vavuq">watch an introductory talk</a> by Jesse Wilson at QCon 2012.</p>
 
-            <h3 id="using">Using Dagger</h3>
-            <p>We'll demonstrate dependency injection and Dagger by building a coffee maker. For complete sample code that you can compile and run, see Dagger's <a href="https://github.com/vavuq/vavuq">coffee example</a>.</p>
+            <h3 id="using">Using Vavuq</h3>
+            <p>We'll demonstrate dependency injection and Vavuq by building a coffee maker. For complete sample code that you can compile and run, see Vavuq's <a href="https://github.com/vavuq/vavuq">coffee example</a>.</p>
 
             <h4>Declaring Dependencies</h4>
 
-            <p>Dagger constructs instances of your application classes and satisfies their dependencies. It uses the <code>javax.inject.Inject</code> annotation to identify which constructors and fields it is interested in.</p>
+            <p>Vavuq constructs instances of your application classes and satisfies their dependencies. It uses the <code>javax.inject.Inject</code> annotation to identify which constructors and fields it is interested in.</p>
 
-            <p>Use <code>@Inject</code> to annotate the constructor that Dagger should use to create instances of a class. When a new instance is requested, Dagger will obtain the required parameters values and invoke this constructor.</p>
+            <p>Use <code>@Inject</code> to annotate the constructor that Vavuq should use to create instances of a class. When a new instance is requested, Vavuq will obtain the required parameters values and invoke this constructor.</p>
 
             <pre class="prettyprint">class Thermosiphon implements Pump {
   private final Heater heater;
@@ -76,7 +76,7 @@
   ...
 }</pre>
 
-            <p>Dagger can inject fields directly. In this example it obtains a <code>Heater</code> instance for the <code>heater</code> field and a <code>Pump</code> instance for the <code>pump</code> field.</p>
+            <p>Vavuq can inject fields directly. In this example it obtains a <code>Heater</code> instance for the <code>heater</code> field and a <code>Pump</code> instance for the <code>pump</code> field.</p>
 
             <pre class="prettyprint">class CoffeeMaker {
   @Inject Heater heater;
@@ -85,13 +85,13 @@
   ...
 }</pre>
 
-            <p>If your class has <code>@Inject</code>-annotated fields but no <code>@Inject</code>-annotated constructor, Dagger will use a no-argument constructor if it exists. Classes that lack <code>@Inject</code> annotations cannot be constructed by Dagger.</p>
+            <p>If your class has <code>@Inject</code>-annotated fields but no <code>@Inject</code>-annotated constructor, Vavuq will use a no-argument constructor if it exists. Classes that lack <code>@Inject</code> annotations cannot be constructed by Vavuq.</p>
 
-            <p>Dagger does not support method injection.</p>
+            <p>Vavuq does not support method injection.</p>
 
             <h4>Satisfying Dependencies</h4>
 
-            <p>By default, Dagger satisfies each dependency by constructing an instance of the requested type as described above. When you request a <code>CoffeeMaker</code>, it'll obtain one by calling <code>new CoffeeMaker()</code> and setting its injectable fields.</p>
+            <p>By default, Vavuq satisfies each dependency by constructing an instance of the requested type as described above. When you request a <code>CoffeeMaker</code>, it'll obtain one by calling <code>new CoffeeMaker()</code> and setting its injectable fields.</p>
 
             <p>But <code>@Inject</code> doesn't work everywhere:</p>
 
@@ -257,7 +257,7 @@ public @interface Named {
 
             <p><span class="label label-important">Warning:</span> This feature should be used sparingly because static dependencies are difficult to test and reuse.</p>
 
-            <p>Dagger can inject static fields. Classes that declare static fields with <code>@Inject</code> annotations must be listed as <code>staticInjections</code> in a module annotation.</p>
+            <p>Vavuq can inject static fields. Classes that declare static fields with <code>@Inject</code> annotations must be listed as <code>staticInjections</code> in a module annotation.</p>
 
             <pre class="prettyprint">@Module(
     staticInjections = LegacyCoffeeUtils.class
@@ -274,7 +274,7 @@ objectGraph.injectStatics();</pre>
 
             <h4>Compile-time Validation</h4>
 
-            <p>Dagger includes an <a href="http://docs.oracle.com/javase/6/docs/api/javax/annotation/processing/package-summary.html">annotation processor</a> that validates modules and injections. This processor is strict and will cause a compiler error if any bindings are invalid or incomplete. For example, this module is missing a binding for <code>Executor</code>:</p>
+            <p>Vavuq includes an <a href="http://docs.oracle.com/javase/6/docs/api/javax/annotation/processing/package-summary.html">annotation processor</a> that validates modules and injections. This processor is strict and will cause a compiler error if any bindings are invalid or incomplete. For example, this module is missing a binding for <code>Executor</code>:</p>
 
             <pre class="prettyprint">@Module
 class DripCoffeeModule {
@@ -343,15 +343,15 @@ class DripCoffeeModule {
 public class CoffeeAppModule {
 }</pre>
 
-            <p>The annotation processor is enabled automatically when you include Dagger's jar file on your compile classpath.</p>
+            <p>The annotation processor is enabled automatically when you include Vavuq's jar file on your compile classpath.</p>
 
             <h4>Compile-time Code Generation</h4>
 
-            <p>Dagger's annotation processor may also generate source files with names like <code>CoffeeMaker$InjectAdapter.java</code> or <code>DripCoffeeModule$ModuleAdapter</code>. These files are Dagger implementation details. You shouldn't need to use them directly, though they can be handy when step-debugging through an injection.</p>
+            <p>Vavuq's annotation processor may also generate source files with names like <code>CoffeeMaker$InjectAdapter.java</code> or <code>DripCoffeeModule$ModuleAdapter</code>. These files are Vavuq implementation details. You shouldn't need to use them directly, though they can be handy when step-debugging through an injection.</p>
 
             <h4>Module overrides</h4>
 
-            <p>Dagger will fail with an error if there are multiple competing <code>@Provides</code> methods for the same dependency. But sometimes it's necessary to replace production code with a substitute for development or testing. Using <code>overrides = true</code> in a module annotation lets you take precedence over the bindings of other modules.</p>
+            <p>Vavuq will fail with an error if there are multiple competing <code>@Provides</code> methods for the same dependency. But sometimes it's necessary to replace production code with a substitute for development or testing. Using <code>overrides = true</code> in a module annotation lets you take precedence over the bindings of other modules.</p>
 
             <p>This JUnit test overrides <code>DripCoffeeModule</code>'s binding for <code>Heater</code> with a mock object from <a href="http://mockito.googlecode.com/">Mockito</a>. The mock gets injected into the <code>CoffeeMaker</code> and also into the test.</p>
 
@@ -392,8 +392,8 @@ public class CoffeeAppModule {
 
             <h3 id="download">Download</h3>
             <p><a href="https://search.maven.org/remote_content?g=com.squareup.vavuq&a=vavuq&v=LATEST" class="dl core-version-href">&darr; <span class="version-tag">Latest</span> JAR</a> <a href="https://search.maven.org/remote_content?g=com.squareup.vavuq&a=vavuq-compiler&v=LATEST" class="dl compiler-version-href">&darr; <span class="version-tag">Latest</span> Compiler JAR</a></p>
-            <p>You will need to include the Dagger JAR in your application's runtime.  In order to activate code generation you will need to include the compiler JAR in your build at compile time.</p>
-            <p>The source code to the Dagger, its samples, and this website is <a href="http://github.com/square/vavuq">available on GitHub</a>.</p>
+            <p>You will need to include the Vavuq JAR in your application's runtime.  In order to activate code generation you will need to include the compiler JAR in your build at compile time.</p>
+            <p>The source code to the Vavuq, its samples, and this website is <a href="http://github.com/square/vavuq">available on GitHub</a>.</p>
 
             <h4>Maven</h4>
             <pre class="prettyprint">&lt;dependency>
@@ -410,12 +410,12 @@ public class CoffeeAppModule {
 
             <h3 id="upgrading">Upgrading from Guice</h3>
 
-            <p>Some notable Guice features that Dagger doesn't support:</p>
+            <p>Some notable Guice features that Vavuq doesn't support:</p>
             <ul>
-                <li>Injecting <code>final</code> fields and <code>private</code> members. For best performance Dagger generates code. Work around this by using constructor injection.</li>
+                <li>Injecting <code>final</code> fields and <code>private</code> members. For best performance Vavuq generates code. Work around this by using constructor injection.</li>
                 <li>Eager singletons. Work around this by creating an <code>EagerSingletons</code> class that declares static fields for each eager singleton.</li>
                 <li>Method injection.</li>
-                <li>Classes that lack <code>@Inject</code> annotations cannot be constructed by Dagger, even if they have a no-argument constructor.</li>
+                <li>Classes that lack <code>@Inject</code> annotations cannot be constructed by Vavuq, even if they have a no-argument constructor.</li>
             </ul>
 
             <h3 id="contributing">Contributing</h3>
@@ -442,7 +442,7 @@ limitations under the License.</pre>
             <div class="content-nav" data-spy="affix" data-offset-top="80">
               <ul class="nav nav-tabs nav-stacked primary">
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#using">Using Dagger</a></li>
+                <li><a href="#using">Using Vavuq</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="#upgrading">Upgrading from Guice</a></li>
                 <li><a href="#contributing">Contributing</a></li>
