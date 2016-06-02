@@ -67,32 +67,8 @@
             <p>Manual end.</p>
 
             <h3 id="download">Download</h3>
-            <p><a href="https://search.maven.org/remote_content?g=com.squareup.vavuq&a=vavuq&v=LATEST" class="dl core-version-href">&darr; <span class="version-tag">Latest</span> JAR</a> <a href="https://search.maven.org/remote_content?g=com.squareup.vavuq&a=vavuq-compiler&v=LATEST" class="dl compiler-version-href">&darr; <span class="version-tag">Latest</span> Compiler JAR</a></p>
-            <p>You will need to include the Vavuq JAR in your application's runtime.  In order to activate code generation you will need to include the compiler JAR in your build at compile time.</p>
-            <p>The source code to the Vavuq, its samples, and this website is <a href="http://github.com/square/vavuq">available on GitHub</a>.</p>
-
-            <h4>Maven</h4>
-            <pre class="prettyprint">&lt;dependency>
-  &lt;groupId>com.squareup.vavuq&lt;/groupId>
-  &lt;artifactId>vavuq&lt;/artifactId>
-  &lt;version><span class="version pln"><em>(insert latest version)</em></span>&lt;/version>
-&lt;/dependency>
-&lt;dependency>
-  &lt;groupId>com.squareup.vavuq&lt;/groupId>
-  &lt;artifactId>vavuq-compiler&lt;/artifactId>
-  &lt;version><span class="version pln"><em>(insert latest version)</em></span>&lt;/version>
-  &lt;optional>true&lt;/optional>
-&lt;/dependency></pre>
-
-            <h3 id="upgrading">Upgrading from Guice</h3>
-
-            <p>Some notable Guice features that Vavuq doesn't support:</p>
-            <ul>
-                <li>Injecting <code>final</code> fields and <code>private</code> members. For best performance Vavuq generates code. Work around this by using constructor injection.</li>
-                <li>Eager singletons. Work around this by creating an <code>EagerSingletons</code> class that declares static fields for each eager singleton.</li>
-                <li>Method injection.</li>
-                <li>Classes that lack <code>@Inject</code> annotations cannot be constructed by Vavuq, even if they have a no-argument constructor.</li>
-            </ul>
+            <p>Download the code.</p>
+            <p>The source code to the Vavuq, its samples, and this website is <a href="http://github.com/vavuq/vavuq">available on GitHub</a>.</p>
 
             <h3 id="contributing">Contributing</h3>
             <p>If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.</p>
@@ -119,7 +95,6 @@ along with this program.  If not, see <a href=http://www.gnu.org/licenses>http:/
                 <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#using">Using Vavuq</a></li>
                 <li><a href="#download">Download</a></li>
-                <li><a href="#upgrading">Upgrading from Guice</a></li>
                 <li><a href="#contributing">Contributing</a></li>
                 <li><a href="#license">License</a></li>
               </ul>
