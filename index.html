@@ -49,6 +49,94 @@
             <p>The source code to the Vavuq, its samples, and this website is <a href="http://github.com/vavuq/vavuq">available on GitHub</a>.</p>
 
             <h3 id="using">Using Vavuq</h3>
+            
+            <p align="left"><strong>1. Introduction</strong></p>
+            <p align="justify">    VAVUQ is developed by the Civil and Environmental Engineering department at the University of California Davis (UCD). This software facilitates validation, verification, and uncertainty quantification studies for numerical simulations. The verification and uncertainty quantification components require refinements of a numerical simulation. The validation component requires numerical simulation results and benchmark values. 
+VAVUQ was created as part of efforts at UCD to increase the consistency of quality applications of numerical models to water resources engineering scenarios.</p>
+            <p></p>
+            <p align="justify">This section discusses the capabilities and general philosophy of VAVUQ. Information specific to VAVUQ is provided in this manual and the online wiki located at the project webpage.</p>
+            <p></p>
+            <p align="left"><strong><i>Contents</i></strong></p>
+            <ul style="list-style-type:disc">
+              <li>General Philosophy</li>
+              <li>Capabilities Overview</li>
+              <li>Documentation</li>
+              <li>Manual Overview</li>
+            </ul>
+            <p></p>
+            <p align="left"><strong><i>Program General Philosophy</i></strong></p>
+            <p></p>
+            <p align="justify">VAVUQ integrates various cross-platform, free, and open-source software libraries to facilitate the application of validation, verification, and uncertainty quantification of numerical codes. The VAVUQ software package consists of a graphical user interface (GUI), data visualization components, interpolation libraries, statistical tools, and tools to read various input file types.</p>
+            <p></p>
+            <p align="justify">Four quality control components are contained in VAVUQ:  (1) Validation statistical metrics that can be used to compare mathematical models to observational data; (2) Calculation of the observed order of accuracy for numerical simulations with unknown exact solutions; (3) Calculation of the observed order of accuracy for numerical simulations where an exact solution (or dense mesh solution or spectral solution) can be obtained; (4) Uncertainty Quantification for determining numerical discretization error bands for chosen degrees of confidence. In addition, the system provides visualization options for each component. Data can be saved in a spreadsheet format for grid interpolations and calculations or as text for normalized calculations and other text-based output.</p>
+            <p></p>
+            <p align="justify">VAVUQ currently supports comparisons of 2D numerical approximations for both structured and unstructured meshes. Future releases of the program will support comparisons of 3D numerical approximations.</p>
+            <p></p>
+            <p align="left"><strong><i>Overview of the Program Capabilities</i></strong></p>
+            <p></p>
+            <p align="justify">VAVUQ is designed to perform quality control calculations for numerical simulations. The major capabilities of VAVUQ are described in the following portion of this section.</p>
+            <p></p>
+            <p align="left"><i>User Interface</i></p>
+            <p></p>
+            <p align="justify">A graphical user interface (GUI) allows user interaction with VAVUQ. The user interface is designed with the goal of facilitating software operation and promoting efficiency. The following functions are provided with the interface:</p>
+            <ul style="list-style-type:disc">
+              <li>Method selections</li>
+              <li>Interpolation selections</li>
+              <li>Data visualization</li>
+              <li>Input file selection</li>
+              <li>Displayed output from the methods</li>
+              <li>Selection of specific spatial regions to apply the verification methods</li>
+              <li>Output saving options</li>
+              <li>Help options</li>
+            </ul>
+            <p></p>
+            <p align="left">VAVUQ Components</p>
+            <p align="justify"><u>Validation</u>. This component of VAVUQ is intended for comparing numerical simulation data to observed data. Comparisons are made with different statistical calculations. Depending on the modeled system, some of the calculated metrics may be more appropriate than others. Calculations can be made with a list consisting of observed data and another list corresponding to numerical approximations of the system the observed data was obtained from. </p>
+            <p></p>
+            <p align="justify"><u>Solution Verification</u>. This component of VAVUQ is capable of approximating the observed order of accuracy from three numerical simulations. The observed order of accuracy is approximated by determining the spatial discretization of each simulation and the differences between each refinement. The discretizations of the different simulations are determined with VAVUQ. Simulations with nodes that do not overlap can be compared with different interpolation routines. Three equations for truncation error are used to produce an expression that is solved for the observed order of accuracy. The expression is approximated with a direct substitution iterative procedure.</p>
+            <p></p>
+            <p align="justify"><u>Code Verification</u>. This component of VAVUQ approximates the observed order of accuracy from two numerical simulations and an exact solution. The calculation is made by relating two expressions of truncation error to solve for the observed order of accuracy. The assumed exact solution can be from an analytical solution, a dense mesh, or results from the method of manufactured solutions. The verification option requires the user to input three numerical simulations so that the observed order of accuracy can be calculated twice. This allows the user to assess whether the calculations are consistent.</p>
+            <p></p>
+            <p align="justify"><u>Uncertainty Quantification</u>. This component of VAVUQ is capable of approximating error bands from numerical approximations. This is achieved by determining the observed order of accuracy and then applying the grid convergence index with a specified safety factor. Different safety factors can be selected depending on the desired reliability of the error bands and whether the mesh is structured or unstructured. As with the other methods, interpolation can be used to relate meshes that do not align spatially.</p>
+            <p></p>
+            <p align="left"><i>Graphics and Reporting</i></p>
+            <p></p>
+            <p align="justify">Graphics are specific for the verification and validation methods. The verification methods can produce 3D surface plots, 3D scatter plots, 2D contour plots, and 2D image plots. The validation component can produce 1D scatter plots of simulation values versus observational values, 1D line plots of simulation values plotted with observational values, and 1D line plots of simulation values minus observational values.</p>
+            <p></p>
+            <p align="justify">The VAVUQ output data is displayed in a textbox below the program option menus. Longer or shorter text output can be produced for the verification options. The longer output includes the values of calculated norms.</p>
+            <p></p>
+            <p align="left"><strong><i>VAVUQ Documentation</i></strong></p>
+            <p align="justify">The VAVUQ package includes a link to a wiki that contains the program documentation. This documentation can be accessed from the “help” toolbar menu. This wiki can be updated as the program is modified. As a result, obtaining the most recent version of VAVUQ from the project website will ensure agreement with the documentation.</p>
+            <p></p>
+            <p align="left"><strong><i>Overview of This Manual</i></strong></p>
+            <p align="justify">This documentation serves as a user’s manual for the operation of the VAVUQ system. This manual organization is as follows:</p>
+            <ul style="list-style-type:disc">
+              <li>Chapter 2 provides information on software and hardware requirements</li>
+              <li>Chapter 3 provides information on working with VAVUQ</li>
+              <li>Chapter 4 provides example applications for each of the major program components</li>
+            </ul>
+            <p></p>
+            <p align="left"><strong>2 Installing VAVUQ</strong></p>
+            <p align="left"><i>Hardware and Software Requirements</i></p>
+            <p></p>
+            <p align="justify">VAVUQ can be run on a personal computer that meets or exceeds certain hardware and software requirements. This version of VAVUQ can be run on a personal computer with the following specifications:</p>
+            <ul style="list-style-type:disc">
+              <li>One of the following operating systems: Windows, OSX, Linux</li>
+              <li>Sufficient RAM, storage, and CPU performance to run the Python 2.7 interpreter</li>
+              <li>A mouse</li>
+              <li>A monitor</li>
+            </ul>
+            <p></p>
+            <p align="left"><i>Installation Procedure</i></p>
+            <p align="justify">VAVUQ can be operated on a personal computer with two methods. One method consists of double clicking on a VAVUQ executable (i.e. “VAVUQ.exe”) in Windows.  The executable can be placed in any file directory the computer has access to. This method does not result in any new programs being installed to the computer. Another method is to directly run the VAVUQ Python script file. This method requires the installation of Python and the dependencies used in the program. All of the dependencies are common Python libraries that may be included in a Python distribution such as Anaconda. The dependencies may also be obtained by using the PIP Python package manager. The used dependencies are listed in a comment string in the beginning of the VAVUQ Python script file.  </p>
+            <p></p>
+            <p align="left"><i>Uninstall Procedure</i></p>
+            <p align="justify">VAVUQ can be uninstalled by deleting either the executable file or the script file. The Python interpreter can be uninstalled with the computer’s program manager. The Python dependencies can be uninstalled with PIP.</p>
+            <p></p>
+            
+            <p align="left"><strong>3. Working with VAVUQ – An Overview</strong></p>
+
+            
             <p align="justify">VAVUQ is an integrated package of numerical approximation quality control programs. A user can interact with VAVUQ with an incorporated Graphical User Interface (GUI). The system is capable of performing validation, verification, and uncertainty quantification computations. Fig. (1) demonstrates the general program operation.</p>
             <p class="screenshot"><img style="float: right; border: 1px solid #000000;" src="static/Selection_001.png" alt="scnsht"></p>
             <p align="center"><strong>Figure 1:</strong> The general program operation can be conceptualized with a flow chart. </p>
@@ -80,6 +168,17 @@
               <li>Perform the desired calculations with VAVUQ.</li>
               <li>Visualize and interpret output data.</li>
             </ul>
+            <p></p>
+            <p align="left"><i>Determining Study Objective</i></p>
+            <p></p>
+            <p align="justify">The first step in using VAVUQ is to identify the study objective. For example, the goal can be to validate a mathematical model, verify the numerical approximations of a computer code, verify the simulation approximations applied to a specific system, or determine the discretization error uncertainty of a given numerical approximation. If validation is the goal, appropriate observational data needs to be obtained from a system and the approximations of that system have to be made with the model of interest. If code verification is the goal, an appropriately complex exact solution needs to be obtained or created to compare three numerical approximations to. For example, the exact solution can be obtained with an analytical solution, the Method of Manufactured Solutions, or a dense mesh. If simulation verification or discretization uncertainty quantification is the goal, at least three numerical simulations with refinements equal to or greater than 1.3 are required.</p>
+            
+            <p align="left"><i>Preparing Input Data</i></p>
+            <p align="justify">VAVUQ can read various input file formats. VAVUQ is able to read data from .xlsx, .xls, .csv, .txt, .dat, and HDF5 files. The data has to be specifically arranged in order for VAVUQ to perform the calculations. For the spreadsheet file formats (.xls and .xlsx), the data for each discretization needs to be located in different tabs. Each tab needs to have unraveled matrices corresponding to the spatial coordinates and the simulation values in the first three columns as demonstrated in Table 1.</p>
+            <p></p>
+            <p align="center"><strong>Table 1:</strong> Spreadsheet input files contain unraveled matrices with the spatial coordinates in the first two columns and the simulated parameter in the third column.</p>
+            
+            
             
             
             <h3 id="license">License</h3>
