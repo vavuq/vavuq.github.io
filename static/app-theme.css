@@ -11,12 +11,12 @@
 header,
 #subtitle,
 a.dl {
-  background-color: #487fb9;
+  background-color: #196666;
 }
 
 .content-nav li.active a,
 .content-nav li.active a:hover {
-  border-left-color: #487fb9;
+  border-left-color: #196666;
 }
 
 /*** One step left on the monochromatic scale ***/
